@@ -1,5 +1,5 @@
 import { galleryItems } from './gallery-items.js';
-let instance;
+
 const gallery = document.querySelector('.gallery');
 
 const createGalleryItem = ({ preview, original, description }) => `
@@ -53,4 +53,8 @@ const closeModalOnEsc = (event) => {
     closeModal();
   }
 };
+const instance = basicLightbox.create(html, {
+  onShow: (instance) => console.log('onShow', instance),
+  onClose: (instance) => console.log('onClose', instance),
+});
 renderGallery();
